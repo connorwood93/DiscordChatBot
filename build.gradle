@@ -7,10 +7,19 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        name 'm2-dv8tion'
+        url 'https://m2.dv8tion.net/releases'
+        content() {
+            includeGroup 'net.dv8tion'
+        }
+    }
 }
 
 dependencies {
-    implementation 'net.dv8tion:JDA:4.2.0_227'
+    implementation 'net.dv8tion:JDA:4.3.0_277', {
+        exclude module: 'opus-java'
+    }
 
     implementation 'com.github.ajalt.clikt:clikt:3.1.0'
 
